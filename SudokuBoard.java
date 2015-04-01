@@ -4,13 +4,30 @@ public class SudokuBoard implements GameBoard{
     int colnum;
     SudokuTile [][] board;
 
-    public SudokuBoard(){
+    public SudokuBoard(String inputBoard){
         //the row & column numbers have to be perfect squares so that you can use the boxes
         this.boxnum = 9;
         this.rownum = 9;
         this.colnum = 9;
-        
         board = new SudokuTile[this.rownum][this.colnum];
+        int counter = 0;
+        int val;
+        int curstate;
+        SudokuTile t;
+        for(int i=0; i<this.rownum; i++){
+            for(int j=0; j<this.colnum; j++){
+                val = Integer.parseInt(inputBoard.substring(counter, counter+1));
+                if (val == 0){
+                    curstate = SudokuTile.EMPTY;
+                }
+                else{
+                    curstate = SudokuTile.PERMANENT;
+                }
+                t = new SudokuTile(i, j, curstate, val);
+                board[i][j] = t;
+                counter +=1;
+            }
+        }
     }
     /*
      * check if board is correct AND is full
@@ -20,6 +37,32 @@ public class SudokuBoard implements GameBoard{
             return true;
        }
         return false;
+    }
+    
+    public void print(){
+        String result = "    A B C  D E F  G H I\n\n";
+        String letters = "ABCDEFGHI";
+        for(int i=0; i<this.rownum; i++){
+            result += letters.substring(i,i+1);
+            result += "   ";
+            for(int j=0; j<this.colnum; j++){
+                result += board[i][j].value; 
+                if (j == 2 || j == 5){
+                    result +="  ";
+                }
+                else{
+                    result +=" ";
+                }
+            }
+            if (i == 2 || i == 5){
+                result += "\n\n";
+            }
+            else{
+                result += "\n";
+        
+            }
+        }
+        System.out.println(result);
     }
     
     public boolean allRowsCorrect(){
