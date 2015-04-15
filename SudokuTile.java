@@ -26,28 +26,28 @@ public class SudokuTile implements GameTile{
     }
     
     public int getBoxFromRowCol(int r, int c){
-        if (r<4 && c<4){
+        if (r<3 && c<3){
            return 1;
         } 
-        else if (r<4 && c<7){
+        else if (r<3 && c<6){
             return 2;
         }
-        else if (r<4){
+        else if (r<3){
             return 3;
         }
-        else if (r<7 && c<4){
+        else if (r<6 && c<3){
             return 4;
         }
-        else if (r<7 && c<7){
+        else if (r<6 && c<6){
             return 5;
         }
-        else if (r<7){
+        else if (r<6){
             return 6;
         }
-        else if (c<4){
+        else if (c<3){
             return 7;
         }
-        else if (c<7){
+        else if (c<6){
             return 8;
         }
         else {
