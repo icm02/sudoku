@@ -69,3 +69,29 @@ rowcollumn value
 
 
 
+public int [] guessHashmap(notCanceledHashmap){
+    1 3
+        try{ move = 1
+    if !works
+        try {move = 3
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
